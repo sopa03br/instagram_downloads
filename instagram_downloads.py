@@ -10,7 +10,7 @@ def get_resposta(url):
 def prepare_urls(matches):
     return list({match.replace("\\u0026", "&") for match in matches})
 
-url = input('Enter Instagram URL: ')
+url = input('Coloque a url do Instagram: ')
 resposta = get_resposta(url)
 
 vid_matches = re.findall('"video_url":"([^"]+)"', resposta)
@@ -26,4 +26,4 @@ if pic_urls:
     print('Detected Pictures:\n{0}'.format('\n'.join(pic_urls)))
 
 if not (vid_urls or pic_urls):
-    print('Could not recognize the media in the provided URL.')
+    print('Não foi possível reconhecer a mídia no URL fornecido.')
